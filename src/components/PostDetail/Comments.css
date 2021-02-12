@@ -1,0 +1,32 @@
+.CommentContainer {
+  box-sizing: border-box;
+  width: 100%;
+  max-height: 110px;
+  padding: 10px;
+  border-bottom: 1px solid var(--color-gray);
+}
+
+.CommentHeader {
+  width: 100%;
+}
+
+.CommentHeader > h1 {
+  font-size: 2rem;
+}
+
+.CommentBody {
+  width: 100%;
+}
+
+.CommentBody > p {
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 1220px) {
+  .CommentContainer {
+    max-height: 200px;
+  }
+  .CommentHeader > h1 {
+    font-size: 1.5rem;
+  }
+}

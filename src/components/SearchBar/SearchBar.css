@@ -1,6 +1,6 @@
 .Search {
   outline: none;
-  width: 20%;
+  width: 400px;
   height: 30px;
   margin: 50px 0;
   padding: 10px;
@@ -8,4 +8,11 @@
   border-width: 0;
   font-size: 1.5rem;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+}
+
+@media screen and (max-width: 1220px) {
+  .Search {
+    width: 70vw;
+    max-width: 400px;
+  }
 }

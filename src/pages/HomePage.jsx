@@ -35,12 +35,19 @@ function HomePage() {
   };
 
   useEffect(async () => {
-    setLoading(true);
-    const userData = await getUsers();
-    const users = userData.data;
-    setUsers(users);
-    setFiltersUsers(users);
-    setLoading(false);
+    try {
+      setLoading(true);
+      const userData = await getUsers();
+      const users = userData.data;
+      setUsers(users);
+      setFiltersUsers(users);
+      setLoading(false);
+    } catch (e) {
+      toast.error("Error in fetching Users");
+      setUsers([]);
+      setFiltersUsers([]);
+      setLoading(false);
+    }
   }, []);
 
   return loading ? (

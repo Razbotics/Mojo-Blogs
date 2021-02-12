@@ -1,0 +1,112 @@
+.PostDetails {
+  position: relative;
+  display: flex;
+  width: 700px;
+  flex-direction: column;
+  background: #fff;
+  align-items: center;
+  border-radius: 30px;
+  overflow: hidden;
+  padding-bottom: 30px;
+  box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.6);
+}
+
+.PostDetailsHeader {
+  box-sizing: border-box;
+  width: 100%;
+  background: var(--color-dark-gray);
+  margin-bottom: 30px;
+  text-align: center;
+  text-overflow: ellipsis;
+}
+
+.PostDetailsHeader > h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--color-white);
+}
+
+.PostDetailsHeader > h1::first-letter {
+  font-size: 120%;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.PostDetailsBody {
+  width: 100%;
+  padding: 20px;
+}
+
+.PostDetailsBody > p {
+  font-size: 2rem;
+  margin: 0px 20px;
+  line-height: 2.5rem;
+}
+
+.PostDetailsBody > p::first-letter {
+  font-size: 150%;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.Close {
+  position: absolute;
+  display: flex;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  justify-content: center;
+  align-items: center;
+}
+
+.Close:hover {
+  transform: scale(1.2);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.Close:not(:hover) {
+  transition: all 0.2s ease-in-out;
+}
+
+.CommentToggle {
+  display: flex;
+  position: relative;
+  margin-top: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-gray);
+  justify-content: center;
+  align-items: center;
+  top: 10px;
+}
+
+.CommentToggle:hover {
+  cursor: pointer;
+}
+
+.Comments {
+  width: 100%;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.PostDetails > h1 {
+  font-size: 2.5rem;
+}
+
+@media screen and (max-width: 1220px) {
+  .PostDetails {
+    width: 70vw;
+    max-width: 700px;
+  }
+
+  .PostDetailsHeader > h1 {
+    font-size: 2rem;
+    margin: 50px;
+  }
+}

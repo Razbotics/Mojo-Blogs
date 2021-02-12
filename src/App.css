@@ -12,5 +12,12 @@
   background: -moz-linear-gradient(45deg, #4158d0, #c850c0);
   background: linear-gradient(45deg, #4158d0, #c850c0);
   align-items: center;
-  height: 90%;
+  min-height: 90%;
+}
+
+@media screen and (max-width: 1220px) {
+  .Container {
+    display: flex;
+    height: 150vh;
+  }
 }

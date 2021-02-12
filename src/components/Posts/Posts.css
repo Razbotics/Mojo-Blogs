@@ -1,14 +1,15 @@
 .PostsContainer {
   display: flex;
   width: 100%;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .Posts {
   display: flex;
-  width: 700px;
+  width: 80%;
+  max-width: 700px;
   flex-direction: column;
   background: #fff;
   align-items: center;
@@ -22,7 +23,7 @@
   box-sizing: border-box;
   background: var(--color-gray);
   width: 70%;
-  height: 80px;
+  min-height: 80px;
   margin-bottom: 30px;
   padding: 10px;
   vertical-align: middle;
@@ -60,4 +61,9 @@
 
 .PostCard:not(:hover) {
   transition: all 0.2s ease-in-out;
+}
+
+.NavContainer {
+  display: flex;
+  flex-direction: row;
 }

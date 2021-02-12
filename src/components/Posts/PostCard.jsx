@@ -1,8 +1,8 @@
 import React from "react";
 
-function PostCard({ content }) {
+function PostCard({ content, onPostClick }) {
   return (
-    <div className="PostCard">
+    <div className="PostCard" onClick={onPostClick}>
       <p className="content">{content}</p>
     </div>
   );

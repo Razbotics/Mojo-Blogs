@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Loader from "../components/Loader";
-
 import Posts from "../components/Posts";
 import SearchBar from "../components/SearchBar";
+import { toast } from "react-toastify";
 import { getUserPosts, getUserPostsByLimit } from "../services/postService";
 import { getUserById } from "../services/userService";
 
@@ -39,15 +39,19 @@ function PostsPage(props) {
   };
 
   const handlePagination = async (value) => {
-    let val;
-    if (value === "left") {
-      val = pagination - 1;
-      setPagination(val);
-    } else if (value === "right") {
-      val = pagination + 1;
-      setPagination(val);
+    try {
+      let val;
+      if (value === "left") {
+        val = pagination - 1;
+        setPagination(val);
+      } else if (value === "right") {
+        val = pagination + 1;
+        setPagination(val);
+      }
+      await getPostsData(val);
+    } catch (e) {
+      toast.error("Error in fetching data");
     }
-    await getPostsData(val);
   };
 
   const handleSearch = async (value) => {
@@ -61,12 +65,16 @@ function PostsPage(props) {
   };
 
   useEffect(async () => {
-    const userPosts = await getUserPosts(userId);
-    setPostsLength(userPosts.length);
-    const user = await getUserById(userId);
-    setUser(user.data);
-    await getPostsData(0);
-    setLoading(false);
+    try {
+      const userPosts = await getUserPosts(userId);
+      setPostsLength(userPosts.length);
+      const user = await getUserById(userId);
+      setUser(user.data);
+      await getPostsData(0);
+      setLoading(false);
+    } catch (e) {
+      toast.error("Error in fetching data");
+    }
   }, []);
 
   return loading ? (
