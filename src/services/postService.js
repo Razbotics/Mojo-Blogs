@@ -19,7 +19,7 @@ export async function getUserPosts(id) {
 
 export async function getUserPostsByLimit(id, skip = 0, limit = 5) {
   return await http.get(
-    `${postsEndpoint}?userId=${id}&skip=${skip}&limit=${limit}`
+    `${postsEndpoint}?userId=${id}&_start=${skip}&_limit=${limit}`
   );
 }
 

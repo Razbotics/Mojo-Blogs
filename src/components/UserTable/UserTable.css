@@ -6,11 +6,12 @@ table {
   border-spacing: 1;
   border-collapse: collapse;
   background: white;
-  border-radius: 10px;
+  border-radius: 15px;
   overflow: hidden;
   width: 100%;
   margin: 0 auto;
   position: relative;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
 }
 table * {
   position: relative;

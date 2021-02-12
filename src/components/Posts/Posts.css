@@ -1,0 +1,63 @@
+.PostsContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.Posts {
+  display: flex;
+  width: 700px;
+  flex-direction: column;
+  background: #fff;
+  align-items: center;
+  border-radius: 30px;
+  overflow: hidden;
+  padding-bottom: 30px;
+  box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.6);
+}
+
+.PostCard {
+  box-sizing: border-box;
+  background: var(--color-gray);
+  width: 70%;
+  height: 80px;
+  margin-bottom: 30px;
+  padding: 10px;
+  vertical-align: middle;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px grey;
+}
+
+.PostHeader {
+  box-sizing: border-box;
+  width: 100%;
+  background: var(--color-dark-gray);
+  height: 80px;
+  margin-bottom: 30px;
+}
+
+.Header {
+  margin-left: 50px;
+  margin-top: 30px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-white);
+}
+
+.content {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.PostCard:hover {
+  transform: scale(1.2);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  box-shadow: 15px 15px 10px grey;
+}
+
+.PostCard:not(:hover) {
+  transition: all 0.2s ease-in-out;
+}
