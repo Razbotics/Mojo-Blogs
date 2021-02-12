@@ -22,7 +22,11 @@ function PostDetail({ post, comments, onClose }) {
           <h1>Comments</h1>
           <div className="Comments">
             {comments.map((comment) => (
-              <Comments name={comment.name} body={comment.body} />
+              <Comments
+                key={comment.id}
+                name={comment.name}
+                body={comment.body}
+              />
             ))}
           </div>
         </>
