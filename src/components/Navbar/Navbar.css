@@ -1,17 +1,18 @@
 .Navbar {
   display: flex;
   box-sizing: border-box;
-  height: 80px;
+  height: 10%;
   width: 100%;
   background-color: var(--color-gray);
   align-items: center;
-  padding: 5px;
+  padding: 10px;
 }
 
 .Logo {
   width: 70px;
   height: 70px;
   margin-right: 5px;
+  margin-left: 10px;
 }
 
 .BrandName {

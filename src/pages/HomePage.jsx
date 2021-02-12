@@ -1,34 +1,56 @@
 import React, { useEffect, useState } from "react";
+import _ from "lodash";
 import { toast } from "react-toastify";
 import UserTable from "../components/UserTable";
 import { getUsers } from "../services/userService";
-import _ from "lodash";
-import "./HomePage.css";
+import SearchBar from "../components/SearchBar";
 
 function HomePage() {
   const [users, setUsers] = useState([]);
+  const [filteredUsers, setFiltersUsers] = useState([]);
   const [sortColumn, setSortColumn] = useState({ path: "name", order: "asc" });
 
-  const getUsersData = async (column) => {
+  const handleSort = async (column) => {
     try {
       setSortColumn(column);
-      const userData = await getUsers();
-      const users = userData.data;
       const sorted = _.orderBy(users, [sortColumn.path], [sortColumn.order]);
-      setUsers(sorted);
+      setFiltersUsers(sorted);
     } catch (e) {
       toast.error("Error in fetching users");
     }
   };
 
-  useEffect(() => {
-    getUsersData(sortColumn);
-  }, [sortColumn.path, sortColumn.order]);
+  const handleSearch = async (value) => {
+    setFiltersUsers(users);
+    if (!value) return;
+
+    const filtersUsers = users.filter((user) => {
+      if (sortColumn.path === "company.name")
+        return user.company.name.includes(value);
+      return user[sortColumn.path].includes(value);
+    });
+    console.log(filtersUsers);
+    setFiltersUsers(filtersUsers);
+  };
+
+  useEffect(async () => {
+    const userData = await getUsers();
+    const users = userData.data;
+    setUsers(users);
+    setFiltersUsers(users);
+  }, []);
 
   return (
     <>
-      <input className="Search" placeholder="Select column to search by..." />
-      <UserTable users={users} onSort={getUsersData} sortColumn={sortColumn} />
+      <SearchBar
+        placeholder="Select column to search by"
+        onSearch={handleSearch}
+      />
+      <UserTable
+        users={filteredUsers}
+        onSort={handleSort}
+        sortColumn={sortColumn}
+      />
     </>
   );
 }
