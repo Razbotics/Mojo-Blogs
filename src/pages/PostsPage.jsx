@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Loader from "../components/Loader";
 
 import Posts from "../components/Posts";
 import SearchBar from "../components/SearchBar";
@@ -69,7 +70,7 @@ function PostsPage(props) {
   }, []);
 
   return loading ? (
-    <h1>Loading...</h1>
+    <Loader />
   ) : (
     <>
       <SearchBar placeholder="Search Posts" onSearch={handleSearch} />

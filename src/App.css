@@ -4,6 +4,7 @@
 
 .Container {
   display: flex;
+  position: relative;
   flex-direction: column;
   background: #c850c0;
   background: -webkit-linear-gradient(45deg, #4158d0, #c850c0);
