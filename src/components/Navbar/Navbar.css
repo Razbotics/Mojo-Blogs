@@ -1,0 +1,21 @@
+.Navbar {
+  display: flex;
+  box-sizing: border-box;
+  height: 80px;
+  width: 100%;
+  background-color: var(--color-gray);
+  align-items: center;
+  padding: 5px;
+}
+
+.Logo {
+  width: 70px;
+  height: 70px;
+  margin-right: 5px;
+}
+
+.BrandName {
+  display: inline-block;
+  font-size: 3rem;
+  margin: 0;
+}
